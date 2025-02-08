@@ -1,0 +1,25 @@
+# Node modules & dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Next.js build folders
+.next/
+out/
+build/
+dist/
+
+# Static assets
+public/
+
+# Test coverage
+coverage/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Misc
+.DS_Store

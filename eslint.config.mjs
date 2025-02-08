@@ -10,7 +10,31 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    ignores: [
+      "*.config.js",
+      ".next",
+      ".vercel",
+      "build",
+      "coverage",
+      "cypress",
+      "dist",
+      "node_modules",
+      "out",
+      "public",
+    ]
+  },
+  ...compat.extends("next/core-web-vitals", "next/typescript", 
+    "plugin:react/recommended", "plugin:react-hooks/recommended", 
+    "plugin:jsx-a11y/recommended", "prettier", "plugin:react/jsx-runtime"),
+  {
+    rules: {
+    "no-console": "warn",
+    "no-debugger": "error",
+    "no-unused-vars": "error",
+    "react/prop-types": "off",
+  }
+  }
 ];
 
 export default eslintConfig;
