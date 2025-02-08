@@ -1,30 +1,32 @@
+import Link from 'next/link'
+
 export default function Header() {
-    return (
-        <header className="flex justify-between items-center py-4 px-8 shadow-sm border">
-            <div className="flex items-center">
-                <h1 className="text-2xl font-bold ml-2">
-                    <a href="/">Home</a> 
-                </h1>
-            </div>
-            <nav>
-                <ul className="flex space-x-4">
-                    <li>
-                        <a href="/about">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Skills</a>
-                    </li>
-                    <li>
-                        <a href="#">Projects</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                    <li>
-                        <a href="#">Resume</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-    )
+  return (
+    <header className="flex items-center justify-between border px-8 py-4 shadow-sm">
+      <div className="flex items-center">
+        <h1 className="ml-2 text-2xl font-bold">
+          <Link href="/">Home</Link>
+        </h1>
+      </div>
+      <nav>
+        <ul className="flex space-x-4">
+          <li>
+            <Link href="/about">About</Link>
+          </li>
+          <li>
+            <Link href="#">Skills</Link>
+          </li>
+          <li>
+            <Link href="#">Projects</Link>
+          </li>
+          <li>
+            <Link href="#">Contact</Link>
+          </li>
+          <li>
+            <Link href="#">Resume</Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  )
 }
