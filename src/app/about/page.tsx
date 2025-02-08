@@ -1,13 +1,13 @@
 export default function About() {
-    return (
-        <div className="flex-1 flex flex-row border ">
-            <div className="flex-1 h-full flex flex-col border justify-center items-center">
-                <h1 className="text-2xl font-bold">Mario Leonardo</h1>
-                <h1 className="text-2xl font-bold">Mario Leonardo</h1>
-            </div>
-            <div className="flex-1 flex h-full flex-col border justify-center items-center">
-                <h1 className="text-2xl font-bold">Mario Leonardo</h1>
-            </div>
-        </div>
-    )
+  return (
+    <div className="flex flex-1 flex-row border">
+      <div className="flex h-full flex-1 flex-col items-center justify-center border">
+        <h1 className="text-2xl font-bold">Mario Leonardo</h1>
+        <h1 className="text-2xl font-bold">Mario Leonardo</h1>
+      </div>
+      <div className="flex h-full flex-1 flex-col items-center justify-center border">
+        <h1 className="text-2xl font-bold">Mario Leonardo</h1>
+      </div>
+    </div>
+  )
 }
