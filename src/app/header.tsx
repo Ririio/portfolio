@@ -5,13 +5,13 @@ export default function Header() {
     <header className="flex items-center justify-between border px-8 py-4 shadow-sm">
       <div className="flex items-center">
         <h1 className="ml-2 text-2xl font-bold">
-          <Link href="/">Home</Link>
+          <Link href="/">Mario Leonardo</Link>
         </h1>
       </div>
       <nav>
         <ul className="flex space-x-4">
           <li>
-            <Link href="/about">About</Link>
+            <Link href="/">About</Link>
           </li>
           <li>
             <Link href="#">Skills</Link>
