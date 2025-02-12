@@ -15,19 +15,19 @@ export default function Home() {
         animate={{ rotateY: 0, opacity: 1 }}
         exit={{ rotateY: -90, opacity: 0 }}
         transition={{ duration: 0.6, ease: 'easeInOut' }}
-        className="flex w-1/2 flex-col m-5 justify-center items-center border"
+        className="m-5 flex w-1/2 flex-col items-center justify-center border"
       >
-          <Image
-            src="/DSC00093.jpg"
-            alt="Mario Leonardo"
-            className="h-1/2 w-1/2 rounded-full object-cover"
-            width={1000}
-            height={1000}
-          />
-          <h1 className="text-xl font-bold">Welcome to My Page!</h1>
-          <Link href="/pages">
-            <p>Test</p>
-          </Link>
+        <Image
+          src="/DSC00093.jpg"
+          alt="Mario Leonardo"
+          className="h-1/2 w-1/2 rounded-full object-cover"
+          width={1000}
+          height={1000}
+        />
+        <h1 className="text-xl font-bold">Welcome to My Page!</h1>
+        <Link href="/pages">
+          <p>Test</p>
+        </Link>
       </motion.div>
     </AnimatePresence>
   )
