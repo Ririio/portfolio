@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <div className="min-h-full flex flex-row p-5 border">
+    <div className="flex min-h-full flex-row border p-5">
       <div className="flex flex-1 flex-col items-center justify-center gap-4 border text-center">
         <div className="flex flex-col">
           <h1 className="text-2xl font-bold opacity-70">Hello, I am</h1>
@@ -25,19 +25,13 @@ export default function Home() {
         <h1 className="text-2xl font-bold">Table of Contents</h1>
         <ul className="flex flex-col gap-4">
           <li>
-            <Link href="/pages">
-              Academic Projects
-            </Link>
+            <Link href="/pages">Academic Projects</Link>
           </li>
           <li>
-            <Link href="/pages">
-              Skills
-            </Link>
+            <Link href="/pages">Skills</Link>
           </li>
           <li>
-            <Link href="/pages">
-              Hobby
-            </Link>
+            <Link href="/pages">Hobby</Link>
           </li>
         </ul>
       </div>
