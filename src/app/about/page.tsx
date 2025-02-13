@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 export default function Home() {
   return (
     <div className="flex min-h-full flex-row border p-5">
@@ -29,8 +27,12 @@ export default function Home() {
               <h3 className="text-xl font-semibold">Honours Bachelor of Technology</h3>
               <p className="text-gray-700">Software Development (2024–2026)</p>
               <p className="text-gray-700">Seneca Polytechnic</p>
-              <p><strong>GPA:</strong> 4.0</p>
-              <p>🏅<strong>Honours Award Recipient (2024)</strong></p>
+              <p>
+                <strong>GPA:</strong> 4.0
+              </p>
+              <p>
+                🏅<strong>Honours Award Recipient (2024)</strong>
+              </p>
             </div>
           </div>
           <div>
@@ -38,8 +40,12 @@ export default function Home() {
               <h3 className="text-xl font-semibold">Honours Bachelor of Technology</h3>
               <p className="text-gray-700">Software Development (2024–2026)</p>
               <p className="text-gray-700">Seneca Polytechnic</p>
-              <p><strong>GPA:</strong> 4.0</p>
-              <p>🏅<strong>Honours Award Recipient (2024)</strong></p>
+              <p>
+                <strong>GPA:</strong> 4.0
+              </p>
+              <p>
+                🏅<strong>Honours Award Recipient (2024)</strong>
+              </p>
             </div>
           </div>
         </div>
