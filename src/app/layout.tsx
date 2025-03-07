@@ -27,7 +27,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} space-around flex min-h-screen flex-1 flex-col gap-4`}
       >
-        <main className="flex flex-1 justify-center border">{children}</main>
+        <main className="flex flex-1 justify-center">{children}</main>
       </body>
     </html>
   )
