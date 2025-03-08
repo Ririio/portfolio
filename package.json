@@ -11,7 +11,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "jest",
-    "test:e2e": "npx playwright test --trace on",
+    "test:e2e": "npx playwright test",
     "test:watch": "jest --watch"
   },
   "dependencies": {
