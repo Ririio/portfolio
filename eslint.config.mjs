@@ -1,6 +1,7 @@
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { FlatCompat } from '@eslint/eslintrc'
+import playwright from 'eslint-plugin-playwright'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -10,6 +11,13 @@ const compat = new FlatCompat({
 })
 
 const eslintConfig = [
+  {
+    ...playwright.configs['flat/recommended'],
+    files: ['tests/e2e/**'],
+    rules: {
+      ...playwright.configs['flat/recommended'].rules,
+    },
+  },
   {
     ignores: [
       '*.config.js',
@@ -22,6 +30,7 @@ const eslintConfig = [
       'node_modules',
       'out',
       'public',
+      'playwright-report',
     ],
   },
   ...compat.extends(
