@@ -3,34 +3,60 @@
 import Education from '@/components/Education'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useRef } from 'react'
-
-function togglePageFlip(el: HTMLElement) {
-  setAllPagesBack()
-  setClickedPageForward(el)
-  el.classList.toggle('turn')
-}
-
-function setAllPagesBack() {
-  const pages = document.getElementsByClassName('page')
-  for (let i = 0; i < pages.length; i++) {
-    pages[i].classList.remove('z-50')
-  }
-}
-
-function setClickedPageForward(el: HTMLElement) {
-  el.classList.add('z-50')
-}
+import { useCallback, useEffect, useState } from 'react'
 
 export default function Home() {
-  const divRef = useRef<HTMLDivElement>(null)
-  //TODO: Allow arrow key to work at load
+  const MAX_PAGE = 2
+  const [currentPage, setCurrentPage] = useState(0)
+  const [prevDirection, setPrevDirection] = useState('')
+
+  const togglePageFlip = useCallback((el: HTMLElement) => {
+    setAllPagesBack()
+    setClickedPageForward(el)
+    el.classList.toggle('turn')
+  }, [])
+
+  function setAllPagesBack() {
+    const pages = document.getElementsByClassName('page')
+    for (let i = 0; i < pages.length; i++) {
+      pages[i].classList.remove('z-50')
+    }
+  }
+
+  function setClickedPageForward(el: HTMLElement) {
+    el.classList.add('z-50')
+  }
 
   useEffect(() => {
-    if (divRef.current) {
-      divRef.current.focus()
+    const handleKeyDown = (event: KeyboardEvent) => {
+      let tempNum = currentPage
+
+      if (event.key === 'ArrowRight' && currentPage != MAX_PAGE) {
+        if (tempNum + 1 <= MAX_PAGE && prevDirection != 'left') {
+          tempNum += 1
+        }
+        setPrevDirection('right')
+
+        const pageElement = document.querySelector(`[data-page="${tempNum}"]`) as HTMLDivElement
+        togglePageFlip(pageElement)
+        setCurrentPage(tempNum)
+      } else if (event.key === 'ArrowLeft' && currentPage != 0 && currentPage != 1) {
+        if (tempNum - 1 >= 1 && prevDirection != 'right') {
+          tempNum -= 1
+        }
+        setPrevDirection('left')
+
+        const pageElement = document.querySelector(`[data-page="${tempNum}"]`) as HTMLDivElement
+        togglePageFlip(pageElement)
+        setCurrentPage(tempNum)
+      }
     }
-  }, [])
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [currentPage, prevDirection, togglePageFlip])
 
   return (
     <div className="perspective flex h-screen w-screen justify-end">
@@ -42,6 +68,7 @@ export default function Home() {
         onClick={(event) => togglePageFlip(event.currentTarget)}
         onKeyDown={(event) => {
           if (event.key === 'ArrowRight') {
+            setCurrentPage(2)
             togglePageFlip(event.currentTarget) // Right Arrow Key triggers flip
           }
         }}
@@ -60,6 +87,7 @@ export default function Home() {
         onClick={(event) => togglePageFlip(event.currentTarget)}
         onKeyDown={(event) => {
           if (event.key === 'ArrowLeft') {
+            setCurrentPage(1)
             togglePageFlip(event.currentTarget)
           }
         }}
